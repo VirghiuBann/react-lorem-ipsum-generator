@@ -6,10 +6,10 @@ const App = () => {
   const [count, setCount] = useState(1)
   const [text, setText] = useState([])
 
-  const handleChange = () => {
-    if (count > 8) return
+  const handleChange = (e) => {
+    if (e.target.value > 8) return
 
-    setCount(count + 1)
+    setCount(e.target.value)
   }
 
   const handleSubmit = (e) => {
@@ -34,6 +34,11 @@ const App = () => {
           Generate
         </button>
       </form>
+      <article className='lorem-text '>
+        {text.map((paragraph, index) => {
+          return <p key={index}>{paragraph}</p>
+        })}
+      </article>
     </section>
   )
 }
