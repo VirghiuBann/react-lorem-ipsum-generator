@@ -7,12 +7,6 @@ const App = () => {
   const [count, setCount] = useState(1)
   const [text, setText] = useState([])
 
-  const handleChange = (e) => {
-    if (e.target.value > 8) return
-
-    setCount(e.target.value)
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     const sliceData = data.slice(0, count)
@@ -25,11 +19,14 @@ const App = () => {
       <form className='lorem-form' onSubmit={handleSubmit}>
         <label htmlFor='count'>Paragraph:</label>
         <input
-          type='text'
+          type='number'
           id='count'
           name='count'
+          min='1'
+          max='8'
+          step='1'
           value={count}
-          onChange={handleChange}
+          onChange={(e) => setCount(e.target.value)}
         />
         <button type='submit' className='btn'>
           Generate
