@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { nanoid } from 'nanoid'
 
 import data from './data.js'
 
@@ -35,8 +36,9 @@ const App = () => {
         </button>
       </form>
       <article className='lorem-text '>
-        {text.map((paragraph, index) => {
-          return <p key={index}>{paragraph}</p>
+        {text.map((paragraph) => {
+          const id = nanoid()
+          return <p key={id}>{paragraph}</p>
         })}
       </article>
     </section>
